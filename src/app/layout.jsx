@@ -1,7 +1,19 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import '@/styles/globals.css'
+import '@/styles/custom.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const inter = Inter({ subsets: ['latin'] })
+import { Antonio, League_Spartan } from 'next/font/google'
+
+const antonio = Antonio({ 
+    subsets: ['latin'],
+    weight: ['400'],
+    variable: '--font-antonio'
+})
+
+const spartan = League_Spartan({ 
+    subsets: ['latin'],
+    weight: ['400', '700']
+ })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${spartan.className} ${antonio.variable}`}>{children}</body>
     </html>
   )
 }
