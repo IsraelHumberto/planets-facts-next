@@ -1,3 +1,4 @@
+
 :root {
     --white: #FFFFFF;
     --primary: #070724;
@@ -31,7 +32,9 @@ body {
   background-color: var(--primary);
   color: var(--white);
 }
-
+p {
+  font-size: 1.4rem;
+}
 a {
   font-family: inherit;
   text-decoration: none;
