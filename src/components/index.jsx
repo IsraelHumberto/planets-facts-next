@@ -1,5 +1,7 @@
-import Header from "./Header";
+import Header from "./Header/Header";
+import Hero from "./Hero/Hero";
 
 export {
-    Header
+    Header,
+    Hero
 }

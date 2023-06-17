@@ -1,8 +1,10 @@
-import '@/styles/globals.css'
-import '@/styles/custom.css'
+import '@/styles/globals.scss'
+import '@/styles/mixins.scss'
+import '@/styles/variables.scss'
 
 import { Antonio, League_Spartan } from 'next/font/google'
 import { Header } from '@/components';
+import { PlanetsContextProvider } from '@/context/contextPlanets';
 
 const antonio = Antonio({
     subsets: ['latin'],
@@ -24,8 +26,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={`${spartan.className} ${antonio.variable}`}>
-                <Header />
-                {children}
+                <PlanetsContextProvider>
+                    {children}
+                </PlanetsContextProvider>
             </body>
         </html>
     )

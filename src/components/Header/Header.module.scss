@@ -1,0 +1,55 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.container {
+    background: transparent;
+    border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+}
+
+.content {
+    @include max-width;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+        text-transform: uppercase;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        position: relative;
+        gap: 32px;
+
+        button {
+            appearance: none;
+            border: none;
+            background: transparent;
+            color: $white;
+            text-transform: uppercase;
+            font-family: inherit;
+            font-size: 14 px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            padding: 18px 0;
+
+            &:hover::after {
+                height: 4px;
+                transition: height 50ms ease-in;
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                top: -19px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: aqua;
+                transition: height 50ms ease-in;
+            }            
+        }
+    }
+}
