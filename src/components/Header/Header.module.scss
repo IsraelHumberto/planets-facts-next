@@ -4,6 +4,7 @@
 .container {
     background: transparent;
     border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    position: relative;
 }
 
 .content {
@@ -11,16 +12,35 @@
     padding: 16px 32px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    @include devices(tablet) {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    @include devices(mobile) {
+        justify-content: space-between;
+        flex-direction: row;
+    }
 
     .logo {
         text-transform: uppercase;
+        font-size: 28px;
+        font-family: var(--font-antonio);
+        padding: 18px 0; 
     }
 
-    .nav {
+    .navDesktop {
         display: flex;
         align-items: center;
         position: relative;
-        gap: 32px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @include devices(mobile) {
+            display: none;
+        }
 
         button {
             appearance: none;
@@ -29,27 +49,104 @@
             color: $white;
             text-transform: uppercase;
             font-family: inherit;
-            font-size: 14 px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             position: relative;
-            padding: 18px 0;
+            padding: 18px 0;         
+            margin: 0 16px;
 
-            &:hover::after {
-                height: 4px;
-                transition: height 50ms ease-in;
+
+        }
+    }
+
+    .iconHamburguer {
+        background: transparent;
+        border: none;
+        display: none;
+        cursor: pointer;
+
+        @include devices(mobile) {
+            display: block;
+        }
+    }
+}
+
+.sidebar {
+    width: 0;
+    background-color: $primary;
+    min-height: calc(100vh - 104px);
+    position: absolute;    
+    z-index: 100;
+    overflow: hidden;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+
+    &.active {
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        transition: all 0.2s;
+        width: 100%;
+    }
+
+    .navMobile {
+        border-top: 1px solid rgba(256,256,256, 0.2);
+        padding: 24px;
+
+        .navItem {
+            border-bottom: 1px solid rgba(256,256,256, 0.1);
+            
+            button {
+                background-color: transparent;
+                outline: none;
+                border: none;
+                position: relative;
+                width: 100%;
+
+                div {
+                    position: relative;
+                    padding: 20px 0 20px 35px;
+                    display: flex;
+                    align-items: center;
+
+                    .text {
+                        color: $white;
+                        text-transform: uppercase;
+                        font-size: 15px;
+                    }
+    
+                    .circle {
+                        display: inline-block;
+                        content: '';
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                    }
+    
+                    .arrow {
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                
             }
 
-            &:after {
-                position: absolute;
-                content: '';
-                top: -19px;
-                left: 0;
-                width: 100%;
-                height: 0;
-                background-color: aqua;
-                transition: height 50ms ease-in;
-            }            
+            &:last-child {
+                border: none;
+            }
         }
+
     }
 }

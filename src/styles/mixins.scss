@@ -6,13 +6,19 @@
     }
 
     @if $device == tablet {
+        @media only screen and (max-width: 900px) {
+            @content;
+        }
+    }
+
+    @if $device == tablet-sm {
         @media only screen and (max-width: 768px) {
             @content;
         }
     }
 
     @if $device == mobile {
-        @media only screen and (max-width: 375px) {
+        @media only screen and (max-width: 500px) {
             @content;
         }
     }
