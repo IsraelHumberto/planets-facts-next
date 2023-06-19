@@ -167,12 +167,14 @@ const Hero = ({ planets }) => {
         </section>
         <footer className={styles.footer}>
             <div>Made by: Israel Humberto Front-End Developer</div>
-            <Link href='https://www.linkedin.com/in/israelhumberto/'>
-                <BsLinkedin fontSize={24} target='_blank'/>
-            </Link>
-            <Link href='https://github.com/IsraelHumberto/planets-facts-next'>
-                <BsGithub fontSize={24} target='_blank'/>
-            </Link>
+            <div className={styles.links}>
+                <Link href='https://www.linkedin.com/in/israelhumberto/'>
+                    <BsLinkedin fontSize={26} target='_blank' color='#0e76a8'/>
+                </Link>
+                <Link href='https://github.com/IsraelHumberto/planets-facts-next'>
+                    <BsGithub fontSize={26} target='_blank' color='#0e76a8'/>
+                </Link>
+            </div>
         </footer>
         </>
     )

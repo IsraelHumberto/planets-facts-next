@@ -209,7 +209,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-family: inherit;
     gap: 10px;
+    padding: 16px;
 
+    .links {
+        a {
+            margin: 0 8px;
+        }
+    }
 }
