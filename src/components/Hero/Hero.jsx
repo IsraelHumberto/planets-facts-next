@@ -28,7 +28,6 @@ const Hero = ({ planets }) => {
         }
     }, [planet.overview])
 
-    console.log(imgPlanet);
 
 
     const Tab = ({ number, title, name }) => (
