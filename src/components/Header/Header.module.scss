@@ -76,7 +76,10 @@
     width: 0;
     background-color: $primary;
     min-height: calc(100vh - 104px);
+    height: 100%;
     position: absolute;    
+    bottom: 0;
+    top: 104px;
     z-index: 100;
     overflow: hidden;
     -webkit-transition: all 0.2s;

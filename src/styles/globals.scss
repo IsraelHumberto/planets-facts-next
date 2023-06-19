@@ -1,56 +1,61 @@
-@import './variables.scss';
-@import './mixins.scss';
+@import "./variables.scss";
+@import "./mixins.scss";
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-size: 1.4rem;
-  background: url('/assets/background-stars.svg') $primary;
-  color: $white;
+    position: relative;
+    font-size: 1.4rem;
+    background: url("/assets/background-stars.svg") $primary;
+    color: $white;
 }
 
-h1, .h1 {
+h1,
+.h1 {
     font-family: var(--font-antonio);
     font-size: 8rem;
     line-height: 103px;
 }
 
-h2, .h2 {
+h2,
+.h2 {
     font-family: var(--font-antonio);
     font-size: 4rem;
     line-height: 52px;
     letter-spacing: -1.5px;
 }
 
-h3, .h3 {
+h3,
+.h3 {
     font-size: 1.2rem;
     line-height: 25px;
-    letter-spacing: 2.6px;  
+    letter-spacing: 2.6px;
     font-weight: 700;
 }
 
-h4, .h4 {
+h4,
+.h4 {
     font-size: 1.1rem;
     line-height: 25px;
     letter-spacing: 1px;
     font-weight: 700;
 }
 p {
-  font-size: 1.4rem;
-  line-height: 20px;
+    font-size: 1.4rem;
+    line-height: 20px;
 }
 a {
-  font-family: inherit;
-  text-decoration: none;
+    font-family: inherit;
+    text-decoration: none;
 }
 
 .loading {
@@ -60,10 +65,12 @@ a {
 }
 
 @include devices(notebook) {
-    h1, .h1 {
+    h1,
+    .h1 {
         font-size: 6rem;
     }
-    h2, .h2 {
+    h2,
+    .h2 {
         font-size: 3rem;
     }
 }

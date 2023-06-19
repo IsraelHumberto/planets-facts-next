@@ -43,8 +43,8 @@ const Header = ({ linksHeader }) => {
         return (
             <div
                 className={`${styles.sidebar} ${openSidebar ? `${styles.active}` : ''}`}
-            >        
-             <div className={styles.navMobile}>
+            >
+                <div className={styles.navMobile}>
                     {renderLinksMobile}
                 </div>
             </div>
@@ -69,8 +69,8 @@ const Header = ({ linksHeader }) => {
                         />
                     </button>
                 </div>
-                <Sidebar />
             </header>
+            <Sidebar />
         </>
     )
 }
