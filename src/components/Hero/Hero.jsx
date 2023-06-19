@@ -5,9 +5,10 @@ import Image from 'next/image'
 import styles from './Hero.module.scss'
 import { useEffect, useState } from 'react'
 import { usePlanetsContext } from '@/context/contextPlanets'
-import { useNextSanityImage } from 'next-sanity-image'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '@/sanity'
+import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import { Oval } from 'react-loader-spinner'
 
 const Hero = ({ planets }) => {
     const { planet, setPlanet, text, chooseTopic, imgPlanet, setActiveTab, activeTab, wikipediaLink, imgSurface } = usePlanetsContext()
@@ -68,6 +69,7 @@ const Hero = ({ planets }) => {
     )
 
     return (
+        <>
         <section className={styles.hero}>
             {!!planet && !!imgPlanet ?
                 <>
@@ -76,7 +78,8 @@ const Hero = ({ planets }) => {
                             number='01'
                             title='overview'
                             name='overview'
-                        />
+                            />
+    
                         <TabMobile
                             number='02'
                             title='structure'
@@ -149,8 +152,29 @@ const Hero = ({ planets }) => {
                         </div>
                     </div>
                 </>
-                : ''}
+                : 
+            <Oval 
+                height={80}
+                width={80}
+                color="white"
+                visible={true}
+                ariaLabel='oval-loading'
+                secondaryColor="#4d5ba9"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+                wrapperClass='loading'
+            />}
         </section>
+        <footer className={styles.footer}>
+            <div>Made by: Israel Humberto Front-End Developer</div>
+            <Link href='https://www.linkedin.com/in/israelhumberto/'>
+                <BsLinkedin fontSize={24} target='_blank'/>
+            </Link>
+            <Link href='https://github.com/IsraelHumberto/planets-facts-next'>
+                <BsGithub fontSize={24} target='_blank'/>
+            </Link>
+        </footer>
+        </>
     )
 }
 

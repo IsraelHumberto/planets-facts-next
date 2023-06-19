@@ -204,3 +204,12 @@
     font-family: inherit;
     cursor: pointer;
 }
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    gap: 10px;
+
+}

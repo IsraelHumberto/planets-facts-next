@@ -53,6 +53,12 @@ a {
   text-decoration: none;
 }
 
+.loading {
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
 @include devices(notebook) {
     h1, .h1 {
         font-size: 6rem;
