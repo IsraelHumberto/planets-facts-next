@@ -2,21 +2,28 @@
 import { useEffect, useState } from 'react'
 import styles from './Header.module.scss'
 import { BsList, BsChevronRight } from 'react-icons/bs'
+import { usePlanetsContext } from '@/context/contextPlanets'
+
 
 
 const Header = ({ linksHeader }) => {
     const [openSidebar, setOpenSidebar] = useState(false)
+    const { choosePlanet } = usePlanetsContext()
 
-    const renderLinksDesk = linksHeader.map((link, index) => {
+
+    const renderLinksDesk = linksHeader?.map((link, index) => {
         return (
-            <button key={index} className='h3'>
+            <button key={index} className='h3' onClick={() => choosePlanet(link.name)}>
                 {link.name}
             </button>
         )
     })
     const renderLinksMobile = linksHeader.map((link, index) => {
         return (
-            <div key={index} className={styles.navItem}>
+            <div key={index} className={styles.navItem} onClick={() => {
+                choosePlanet(link.name)
+                setOpenSidebar(false)
+            }}>
                 <button className='h3'>
                     <div>
                         <span className={styles.circle} style={{ background: link.color }}></span>
@@ -36,7 +43,8 @@ const Header = ({ linksHeader }) => {
         return (
             <div
                 className={`${styles.sidebar} ${openSidebar ? `${styles.active}` : ''}`}
-            >         <div className={styles.navMobile}>
+            >        
+             <div className={styles.navMobile}>
                     {renderLinksMobile}
                 </div>
             </div>

@@ -1,0 +1,206 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.hero {
+    .heroContent {
+        @include max-width;
+        padding: 40px;
+
+        .main {
+            display: flex;
+            margin-bottom: 70px;
+
+            .image {
+                width: 100%;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+
+                .imgGeology {
+                    position: absolute;
+                    z-index: 10;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%)
+                }
+            }
+
+            .infos {
+                max-width: 350px;
+                width: 100%;
+
+                .info {
+                    h1 {
+                        text-transform: uppercase;
+                        line-height: 150%;
+                    }
+
+                    .source {
+                        margin: 24px 0;
+
+                        a {
+                            color: $white;
+                            text-decoration: underline;
+                        }
+                        span {
+                            color: $light-gray;
+                        }
+                    }
+                }
+            }
+        }
+
+        .features {
+            display: flex;
+            width: 100%;
+            gap: 30px;
+        }
+
+        @include devices(notebook) {
+            .main {
+                flex-wrap: wrap;
+
+                .infos {
+                    display: flex;
+                    max-width: none;
+                    margin-top: 64px;
+                    gap: 42px;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .info {
+                        max-width: 380px;
+                    }
+                }
+
+                .tabs {
+                    max-width: 390px;
+                }
+            }
+
+            .features {
+                gap: 11px;
+            }
+        }
+
+        @include devices(tablet-sm) {
+            .tabs {
+                display: none;
+            }
+
+            .main {
+                margin-bottom: 32px;
+
+                .infos {
+                    justify-content: center;
+
+                    .info {
+                        width: 100%;
+                        text-align: center;
+                        max-width: none;
+
+                        p {
+                            margin-top: 12px;
+                        }
+                    }
+                }
+
+                .image {
+                    .imgPlanet {
+                        width: 200px;
+                        height: 200px;
+                    }
+
+                    .imgGeology {
+                        width: 82px;
+                        height: 100px;
+                        transform: translateX(-50%) translateY(50%);
+                    }
+                }
+            }
+
+            .features {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    .tabsMobile {
+        display: none;
+    }
+
+    @include devices(tablet-sm) {
+        .tabsMobile {
+            display: flex;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+            width: 100%;
+            justify-content: space-around;
+        }
+    }
+}
+
+.tab {
+    width: 100%;
+    border: 1px solid rgba($color: #fff, $alpha: 0.2);
+    background-color: transparent;
+    transition: all 500ms ease;
+    font-family: inherit;
+    margin-bottom: 16px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $gray;
+        transition: all 500ms ease;
+    }
+
+    div {
+        padding: 12px 28px;
+        display: flex;
+        align-items: center;
+
+        .tabNumber {
+            margin-right: 22px;
+            color: $light-gray;
+        }
+
+        .tabText {
+            text-transform: uppercase;
+            color: $white;
+        }
+    }
+}
+
+.feature {
+    border: 1px solid rgba($color: #fff, $alpha: 0.2);
+    width: 100%;
+    padding: 20px 24px;
+    text-transform: uppercase;
+
+    .titleFeature {
+        color: $light-gray;
+    }
+
+    @include devices(notebook) {
+        padding: 14px 18px;
+    }
+
+    @include devices(tablet-sm) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 9px 18px;
+    }
+}
+
+.tabMobile {
+    padding: 18px 0;
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    color: $white;
+    font-family: inherit;
+    cursor: pointer;
+}
